@@ -59,14 +59,25 @@ exports.searchName = async (req, res) => {
 
 // Get only the Village Name
 exports.getVillageNameGoat = async (req, res) => {
-  const Village = await GoatFarms.distinct("VillageName");
-  res.json(Village);
+  try {
+    const Village = await GoatFarms.distinct("VillageName");
+    res.json({data:Village});
+    
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 // Get only the Village Name
 exports.getVillageNameCow = async (req, res) => {
-  const Village = await CowFarms.distinct("VillageName");
-  res.json({data:Village});
+  try {
+    const Village = await CowFarms.distinct("VillageName");
+    res.json({data:Village});
+    
+  } catch (error) {
+    console.log(error)
+  }
+
 };
 
 // Get all farms on Village Name
