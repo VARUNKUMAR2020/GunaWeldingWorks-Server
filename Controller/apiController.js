@@ -45,10 +45,12 @@ exports.addingGaotFarm = async (req, res) => {
 
 // Search by Name
 exports.searchName = async (req, res) => {
-  const { VillageName } = req.body;
+  const { Village } = req.body;
+  console.log(Village)
   const village = await GoatFarms.find({
-    VillageName: { $regex: `^${VillageName}` },
+    VillageName: Village,
   });
+  console.log(village)
   const length = village.length;
   if (length) {
     res.json({ data: village, count: length });
