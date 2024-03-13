@@ -4,17 +4,19 @@ const {
   home,
   addingCowFarm,
   addingGaotFarm,
-  searchName,
+  searchVillageNameGoatFarm,
   getAllFarmsOnNames,
   getVillageNameGoat,
   getVillageNameCow,
+  searchVillageNameCowFarm,
 } = require("../Controller/apiController");
 
 // API Routers
 router.route("/").get(home);
 router.route("/addingCowFarms").post(addingCowFarm);
 router.route("/addingGoatFarms").post(addingGaotFarm);
-router.route("/searchName").post(searchName);
+router.route("/searchVillageNameGoatFarm").post(searchVillageNameGoatFarm );
+router.route("/searchVillageNameCowFarm").post(searchVillageNameCowFarm)
 router.route("/getVillageNameGoat").get(getVillageNameGoat);
 router.route("/getVillageNameCow").get(getVillageNameCow);
 router.route("/getAllFarmsOnNames").post(getAllFarmsOnNames);
