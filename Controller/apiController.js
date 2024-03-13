@@ -75,7 +75,7 @@ exports.searchVillageNameCowFarm = async (req, res) => {
     });
     res.json({ count: farmCount });
   } else {
-    const village = await GoatFarms.find({
+    const village = await CowFarms.find({
       VillageName: Village,
     });
     village.map((count)=>{
