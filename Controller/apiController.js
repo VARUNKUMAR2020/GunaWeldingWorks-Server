@@ -45,28 +45,38 @@ exports.addingGaotFarm = async (req, res) => {
 
 // Search by Name
 exports.searchName = async (req, res) => {
+  let farmCount = 0;
   const { Village } = req.body;
-  console.log(Village)
-  const village = await GoatFarms.find({
-    VillageName: Village,
-  });
-  console.log(village)
-  const length = village.length;
-  if (length) {
-    res.json({ data: village, count: length });
+  if (Village === "அனைத்து") {
+    const totalCount = await GoatFarms.find({});
+    totalCount.map((value) => {
+      farmCount += Number(value.TotalFarmLoaded);
+    });
+    res.json({ count: farmCount });
   } else {
-    res.send("No data Found");
+    const village = await GoatFarms.find({
+      VillageName: Village,
+    });
+    village.map((count)=>{
+      farmCount += Number(count.TotalFarmLoaded);
+    })
+    res.json({data:village,count:farmCount});
   }
+
+  // if (length) {
+  //   res.json({ data: village, count: length });
+  // } else {
+  //   res.send("No data Found");
+  // }
 };
 
 // Get only the Village Name
 exports.getVillageNameGoat = async (req, res) => {
   try {
     const Village = await GoatFarms.distinct("VillageName");
-    res.json({data:Village});
-    
+    res.json({ data: Village });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 
@@ -74,19 +84,17 @@ exports.getVillageNameGoat = async (req, res) => {
 exports.getVillageNameCow = async (req, res) => {
   try {
     const Village = await CowFarms.distinct("VillageName");
-    res.json({data:Village});
-    
+    res.json({ data: Village });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-
 };
 
 // Get all farms on Village Name
-exports.getAllFarmsOnNames = async(req,res)=>{
-  const{VillageName} = req.body;
+exports.getAllFarmsOnNames = async (req, res) => {
+  const { VillageName } = req.body;
   console.log("Hiii");
-  console.log(VillageName)
-  const farms = await GoatFarms.find({VillageName:VillageName});
-  res.json(farms)
-}
+  console.log(VillageName);
+  const farms = await GoatFarms.find({ VillageName: VillageName });
+  res.json(farms);
+};
