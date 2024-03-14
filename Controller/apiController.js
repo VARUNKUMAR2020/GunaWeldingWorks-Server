@@ -21,7 +21,7 @@ exports.addingCowFarm = async (req, res) => {
     VillageName,
     TotalFarmLoaded,
   });
-  res.send("added");
+  res.send("கொட்டகை சேர்க்கப்பட்டது");
 };
 
 //Adding Goat Farm
@@ -40,7 +40,7 @@ exports.addingGaotFarm = async (req, res) => {
     VillageName,
     TotalFarmLoaded,
   });
-  res.send("added");
+  res.send("கொட்டகை சேர்க்கப்பட்டது");
 };
 
 // Search by Village Name Goat Farm
