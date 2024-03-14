@@ -10,14 +10,14 @@ exports.addingCowFarm = async (req, res) => {
   const {
     VehicleNumber,
     DriverName,
-    PhoneNUmber,
+    PhoneNumber,
     VillageName,
     TotalFarmLoaded,
   } = req.body;
   await CowFarms.create({
     VehicleNumber,
     DriverName,
-    PhoneNUmber,
+    PhoneNumber,
     VillageName,
     TotalFarmLoaded,
   });
@@ -29,14 +29,14 @@ exports.addingGaotFarm = async (req, res) => {
   const {
     VehicleNumber,
     DriverName,
-    PhoneNUmber,
+    PhoneNumber,
     VillageName,
     TotalFarmLoaded,
   } = req.body;
   await GoatFarms.create({
     VehicleNumber,
     DriverName,
-    PhoneNUmber,
+    PhoneNumber,
     VillageName,
     TotalFarmLoaded,
   });

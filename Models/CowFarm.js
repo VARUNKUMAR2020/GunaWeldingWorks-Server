@@ -3,7 +3,7 @@ const mongo = require("mongoose");
 const CowFarm = new mongo.Schema({
   VehicleNumber: String,
   DriverName: String,
-  PhoneNUmber: String,
+  PhoneNumber: String,
   VillageName: String,
   TotalFarmLoaded: String,
 });
