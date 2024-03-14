@@ -48,11 +48,11 @@ exports.searchVillageNameGoatFarm = async (req, res) => {
   let farmCount = 0;
   const { Village } = req.body;
   if (Village === "அனைத்து") {
-    const totalCount = await GoatFarms.find({});
-    totalCount.map((value) => {
+    const village = await GoatFarms.find({});
+    village.map((value) => {
       farmCount += Number(value.TotalFarmLoaded);
     });
-    res.json({ count: farmCount });
+    res.json({ data: village, count: farmCount });
   } else {
     const village = await GoatFarms.find({
       VillageName: Village,
